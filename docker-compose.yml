@@ -1,0 +1,32 @@
+services:
+  modsec3-nginx:
+    container_name: modsec3-nginx
+    image: owasp/modsecurity-crs:4.0.0-nginx-202402261002
+    environment:
+      #Common ENV Variables
+      BACKEND: "http://192.168.1.233:3000"
+      SERVER_NAME: modsec3-nginx
+      #NGINX ENV Variables
+      PORT: "80"
+      #Modsec ENV Variables
+      MODSEC_AUDIT_ENGINE: On
+      MODSEC_AUDIT_LOG: "/var/log/modsec_audit_nginx.json"
+      MODSEC_AUDIT_LOG_FORMAT: JSON
+      MODSEC_AUDIT_LOG_TYPE: Serial
+      MODSEC_AUDIT_LOG_PARTS: ABDEFHIJZ
+      MODSEC_RULE_ENGINE: On
+      MODSEC_TMP_DIR: "/tmp"
+      MODSEC_RESP_BODY_ACCESS: "On"
+      MODSEC_RESP_BODY_MIMETYPE: "text/plain text/html text/xml application/json"
+      #CRS Spesific Variables
+      BLOCKING_PARANOIA: 2
+      COMBINED_FILE_SIZES: "65535"
+#    volumes:
+#      - "/var/log/:/var/log/"
+    ports:
+      - "80:80"
+
+  juiceshop_prod:
+    image: bkimminich/juice-shop
+    ports:
+      - "3000:3000"
