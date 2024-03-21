@@ -8,6 +8,8 @@ services:
       SERVER_NAME: modsec3-nginx
       #NGINX ENV Variables
       PORT: "80"
+      ERRORLOG: "/var/log/modsec_nginx_error.log"
+      ACCESSLOG: "/var/log/modsec_nginx_access.log"
       #Modsec ENV Variables
       MODSEC_AUDIT_LOG: "/var/log/modsec_nginx_audit.log"
       MODSEC_AUDIT_LOG_FORMAT: Native
