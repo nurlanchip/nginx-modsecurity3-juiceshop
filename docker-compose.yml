@@ -9,11 +9,9 @@ services:
       #NGINX ENV Variables
       PORT: "80"
       #Modsec ENV Variables
-      MODSEC_AUDIT_ENGINE: On
-      MODSEC_AUDIT_LOG: "/var/log/modsec_audit_nginx.json"
-      MODSEC_AUDIT_LOG_FORMAT: JSON
+      MODSEC_AUDIT_LOG: "/var/log/modsec_nginx_audit.log"
+      MODSEC_AUDIT_LOG_FORMAT: Native
       MODSEC_AUDIT_LOG_TYPE: Serial
-      MODSEC_AUDIT_LOG_PARTS: ABDEFHIJZ
       MODSEC_RULE_ENGINE: On
       MODSEC_TMP_DIR: "/tmp"
       MODSEC_RESP_BODY_ACCESS: "On"
